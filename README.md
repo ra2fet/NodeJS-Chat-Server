@@ -5,7 +5,7 @@
 
 1. Clone this app using below syntax -:
 
-   > git clone https://github.com/ra2fet/Whatsapp-Clone-Flutter.git
+   > git clone https://github.com/ra2fet/NodeJS-Chat-Server.git
 
 2. After cloning install packages using below syntax -:
    > npm install
