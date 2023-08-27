@@ -8,9 +8,12 @@ var io = require("socket.io")(server);
 //middlewre
 app.use(express.json());
 var clients = {};
+const routes = require("./routes");
+app.use("routes", routes);
+app.use("/uploads", express.static("uploads"));
 
 io.on("connection", (socket) => {
-  console.log("connetetd");
+  console.log("connected");
   console.log(socket.id, "has joined");
   socket.on("signin", (id) => {
     console.log(id);
@@ -22,6 +25,9 @@ io.on("connection", (socket) => {
     let targetId = msg.targetId;
     if (clients[targetId]) clients[targetId].emit("message", msg);
   });
+});
+app.route("/check").get((req, res) => {
+  return res.json("App is working fine");
 });
 
 server.listen(port, "0.0.0.0", () => {
